@@ -255,3 +255,30 @@ introductorio de la página de inicio.*/
     transform: scale(0.8);
   }
 }
+
+/* --- responsive móvil --- */
+@media (max-width: 768px) {
+  .estandartes,
+  .ideas-grid,
+  .galeria-grid,
+  .pasos {
+    grid-template-columns: 1fr !important;
+  }
+
+  .estandarte {
+    transform: none !important;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2,
+  .frase-personalizados {
+    font-size: 1.4rem;
+    padding: 0 15px;
+  }
+}
