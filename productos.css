@@ -1,0 +1,246 @@
+.tarjetas-contenedor {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Opcional: para pantallas más pequeñas, que reduzca las columnas */
+@media (max-width: 1024px) {
+  .tarjetas-contenedor {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+  }
+}
+@media (max-width: 600px) {
+  .tarjetas-contenedor {
+    grid-template-columns: 1fr; /* 1 columna en móviles */
+  }
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
+.tarjeta {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+
+.tarjeta:hover {
+  transform: scale(1.02);
+}
+
+.tarjeta h3 {
+  margin: 0.5rem 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.tarjeta p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 280px; /* AQUI MODIFICADOS LA ALTURA DE LAS IMAGENES DE LAS TARJETAS*/
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+}
+
+
+/* Lightbox */
+
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  text-align: center;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox-content img,
+.lightbox-content video {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 10px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.lightbox-close:hover {
+  color: #c084fc;
+}
+
+.lightbox-nav {
+  margin-top: 0.5rem;
+}
+
+.lightbox-nav button {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  font-size: 2.5rem;
+  color: #6b21a8;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  user-select: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.lightbox-nav button:hover {
+  background: rgba(255, 255, 255, 0.7);
+  color: #a855f7;
+}
+
+/* Botón WhatsApp */
+
+.boton-wsp {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.8rem;
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.boton-wsp:hover {
+  background-color: #1ebd5b;
+}
+
+/* Botón regresar */
+
+.btn-regresar {
+  position: absolute;
+  left: 1rem;
+  top: 1.5rem;
+  text-decoration: none;
+  color: #6b46c1;
+  font-weight: 600;
+  background: #eee;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.btn-regresar:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.descripcion-categoria {
+  color: #666;
+  font-style: italic;
+  margin-top: 5px;
+  max-width: 700px;
+}
+
+.footer .boton-wsp {
+  margin-top: 10px;
+  background-color: #25d366;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
+  display: inline-block;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.footer .boton-wsp:hover {
+  background-color: #1ebe57;
+}
+.texto-personalizado {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+  font-style: italic;
+  text-align: center;
+}
+
+.boton-ordenar,
+.boton-personalizado {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  border-radius: 30px;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.boton-ordenar {
+  background: linear-gradient(90deg, #a855f7, #c084fc);
+}
+
+.boton-ordenar:hover {
+  background: linear-gradient(90deg, #9333ea, #a855f7);
+  transform: translateY(-1px);
+}
+
+.boton-personalizado {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.boton-personalizado:hover {
+  background: linear-gradient(90deg, #16a34a, #15803d);
+  transform: translateY(-1px);
+}
+
+.boton-ordenar i,
+.boton-personalizado i {
+  font-size: 1.2rem;
+}

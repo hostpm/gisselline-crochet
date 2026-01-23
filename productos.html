@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>Gissel.line - Productos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="productos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <header>
+      <a href="index.html" class="btn-regresar">← Volver al inicio</a>
+      <h1 id="titulo-categoria">Creaciones</h1>
+      <p id="descripcion-categoria" class="descripcion-categoria"></p>
+    </header>
+
+    <div class="tarjetas-contenedor" id="tarjetas">
+      <!-- Aquí se insertan las tarjetas con JS -->
+    </div>
+
+    <!-- Lightbox: ventana modal para ver imágenes -->
+    <div class="lightbox-overlay" id="lightbox">
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <img src="" alt="Imagen ampliada" id="lightbox-img" />
+        <div class="lightbox-nav">
+          <button id="prev-btn" class="nav-btn">❮</button>
+          <button id="next-btn" class="nav-btn">❯</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Síguenos en <a href="https://www.instagram.com/gissel.line/" target="_blank">@gissel.line</a></p>
+    </footer>
+
+    <script>
+      const productos = {
+        amigurumis: [
+          {
+            nombre: "Joji",
+            imagenes: [
+              "imagenes/joji1.jpg",
+              "imagenes/joji2.jpg",
+              "imagenes/joji3.jpg"
+            ],
+            tamaño: "15 cm",
+            precio: "$16"
+          },
+          {
+            nombre: "Kurt Cobain",
+            imagenes: [
+              "imagenes/kurt1.jpg",
+              "imagenes/kurt2.jpg"
+            ],
+            tamaño: "11 cm",
+            precio: "$13"
+          },
+          {
+            nombre: "Conejita con overol",
+            imagenes: [
+              "imagenes/conejito1.jpg"
+            ],
+            tamaño: "19 cm",
+            precio: "$22"
+          },
+          {
+            nombre: "Pollito con gorrito",
+            imagenes: [
+              "imagenes/pollito1.jpg"
+            ],
+            tamaño: "7 cm",
+            precio: "$8"
+          },
+         {
+            nombre: "Pollito brujo",
+            imagenes: [
+              "imagenes/pollitobrujo1.jpg"
+            ],
+            tamaño: "7 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Pinguino con carterita",
+            imagenes: [
+              "imagenes/pollitogrande1.jpg",
+              "imagenes/pollitogrande2.mp4"
+            ],
+            tamaño: "7 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Billie Eilish",
+            imagenes: [
+              "imagenes/billie1.jpg",
+              "imagenes/billie2.jpg",
+            ],
+            tamaño: "7 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Juego del calamar",
+            imagenes: [
+              "imagenes/calamar1.jpg",
+              "imagenes/calamar2.jpg",
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Pinguino andante",
+            imagenes: [
+              "imagenes/andante1.jpg",
+              "imagenes/andante2.jpg",
+              "imagenes/andante3.mp4"
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Eevee",
+            imagenes: [
+              "imagenes/eevee1.jpg",
+              "imagenes/eevee2.jpg"
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Lionel Messi",
+            imagenes: [
+              "imagenes/messi1.jpg",
+              "imagenes/messi2.jpg",
+              "imagenes/messi3.jpg",
+              "imagenes/messi4.jpg"
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Portalapices",
+            imagenes: [
+              "imagenes/porta1.jpg",
+              "imagenes/porta2.jpg",
+              "imagenes/porta3.jpg",
+              "imagenes/porta4.jpg",
+              "imagenes/porta5.jpg",
+              "imagenes/porta6.jpg",
+              "imagenes/porta7.jpg",
+              "imagenes/porta8.jpg",
+              "imagenes/porta9.jpg",
+              "imagenes/porta10.jpg"
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Karl Rummenigge",
+            imagenes: [
+              "imagenes/karl1.jpg",
+              "imagenes/karl2.jpg",
+              "imagenes/karl3.jpg"
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Amigurumi Personalizado",
+            imagenes: [
+              "imagenes/señora1.jpg",
+              "imagenes/señora2.jpg",
+              "imagenes/señora3.jpg"
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          }
+        ],
+        flores: [
+          {
+            nombre: "Tulipán",
+            imagenes: [
+              "imagenes/tuli1.jpg",
+              "imagenes/tuli2.jpg",
+              "imagenes/tuli3.jpg"
+            ],
+            precio: "$2.75"
+          },
+          {
+            nombre: "Ramo de tulipanes",
+            imagenes: [
+              "imagenes/ramo1.jpg"
+            ],
+            precio: "$10"
+          },
+         {
+            nombre: "Girasol",
+            imagenes: [
+              "imagenes/girasol1.jpg",
+              "imagenes/girasol2.mp4"
+            ],
+            precio: "$7.50"
+          },
+         {
+            nombre: "Maceta",
+            imagenes: [
+              "imagenes/maceta1.jpg",
+              "imagenes/maceta2.mp4"
+            ],
+            precio: "$7.50"
+          },
+         {
+            nombre: "Flor de Sol",
+            imagenes: [
+              "imagenes/florsol1.jpg",
+              "imagenes/florsol2.jpg",
+              "imagenes/florsol3.jpg"
+
+            ],
+            precio: "$7.50"
+          }
+        ],
+        llaveros: [
+          {
+            nombre: "Skye",
+            imagenes: [
+              "imagenes/skye1.jpg",
+              "imagenes/skye2.jpg"
+            ],
+            tamaño: "7 cm",
+            precio: "$7.50"
+          },
+          {
+            nombre: "Luffy",
+            imagenes: [
+              "imagenes/luffy1.jpg"
+            ],
+            tamaño: "6 cm",
+            precio: "$5.50"
+          },
+         {
+            nombre: "Kaneki",
+            imagenes: [
+              "imagenes/kaneki1.jpg",
+              "imagenes/kaneki2.jpg"
+            ],
+            tamaño: "13 cm",
+            precio: "$15"
+          },
+         {
+            nombre: "Fresa con chocolate",
+            imagenes: [
+              "imagenes/fresa1.jpg"
+            ],
+            tamaño: "5 cm",
+            precio: "$3"
+          },
+         {
+            nombre: "Dinosaurio",
+            imagenes: [
+              "imagenes/dino1.jpg",
+              "imagenes/dino2.jpg",
+              "imagenes/dino3.jpg"
+            ],
+            tamaño: "7 cm",
+            precio: "$7"
+          },
+         {
+            nombre: "Coraline",
+            imagenes: [
+              "imagenes/coraline1.jpg",
+              "imagenes/coraline2.jpg",
+              "imagenes/coraline3.jpg"
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Abejitas",
+            imagenes: [
+              "imagenes/abejitas1.jpg",
+              "imagenes/abejitas2.mp4"
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Pulpo reversible",
+            imagenes: [
+              "imagenes/pulpo1.jpg",
+              "imagenes/pulpo2.jpg",
+              "imagenes/pulpo3.jpg",
+              "imagenes/pulpo4.jpg",
+              "imagenes/pulpo5.jpg"
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Ponyo",
+            imagenes: [
+              "imagenes/ponyo1.jpg",
+              "imagenes/ponyo2.jpg"
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Goku",
+            imagenes: [
+              "imagenes/goku1.jpg",
+              "imagenes/goku2.jpg"
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Roronoa Zoro",
+            imagenes: [
+              "imagenes/zoro1.jpg",
+              "imagenes/zoro2.jpg",
+              "imagenes/zoro2.jpg"
+
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          },
+          {
+            nombre: "Sombrero de Luffy",
+            imagenes: [
+              "imagenes/sombrero1.jpg",
+              "imagenes/sombrero2.jpg",
+              "imagenes/sombrero3.mp4",
+              "imagenes/sombrero4.jpg"
+            ],
+            tamaño: "8 cm",
+            precio: "$8"
+          }
+        ]
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const categoria = params.get("categoria");
+      const contenedor = document.getElementById("tarjetas");
+      const titulo = document.getElementById("titulo-categoria");
+
+      if (categoria) {
+        titulo.textContent = "Creaciones de " + categoria.charAt(0).toUpperCase() + categoria.slice(1);
+      }
+
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxClose = document.getElementById("lightbox-close");
+      const prevBtn = document.getElementById("prev-btn");
+      const nextBtn = document.getElementById("next-btn");
+
+      let imagenesActuales = [];
+      let indiceImagen = 0;
+
+      if (productos[categoria]) {
+        productos[categoria].forEach((p, idxProducto) => {
+          const div = document.createElement("div");
+          div.className = "tarjeta";
+
+          // Mensaje para WhatsApp (codificado)
+          const mensaje = encodeURIComponent(`Hola, estoy interesada en el producto "${p.nombre}". Aquí puedes ver la imagen: ${window.location.origin}/${p.imagenes[0]}`);
+          const whatsappLink = `https://wa.me/593989149595?text=${mensaje}`;
+
+          div.innerHTML = `
+          <img src="${p.imagenes[0]}" alt="${p.nombre}" data-producto="${idxProducto}">
+          <h3>${p.nombre}</h3>
+          ${p.tamaño ? `<p><strong>Tamaño:</strong> ${p.tamaño}</p>` : ""}
+          <p><strong>Precio:</strong> ${p.precio}</p>
+          <a href="${whatsappLink}" target="_blank" class="boton-ordenar"><i class="fab fa-whatsapp"></i> Ordenar ahora</a>`;
+
+          contenedor.appendChild(div);
+
+          // Click en la imagen para abrir lightbox
+          const img = div.querySelector("img");
+          img.style.cursor = "pointer";
+          img.addEventListener("click", () => {
+            imagenesActuales = p.imagenes;
+            indiceImagen = 0;
+            abrirLightbox();
+          });
+        });
+      } 
+      else 
+      {
+        contenedor.innerHTML = "<p>No hay productos en esta categoría.</p>";
+      }
+
+      function abrirLightbox() {
+        lightbox.classList.add("active");
+        mostrarImagen();
+      }
+
+      function cerrarLightbox() {
+        lightbox.classList.remove("active");
+      }
+
+      function mostrarImagen() {
+        const archivo = imagenesActuales[indiceImagen];
+        const esVideo = archivo.endsWith(".mp4");
+
+        if (esVideo) {
+          lightboxImg.style.display = "none";
+
+          // Si ya existe un video previo, lo eliminamos
+          const videoExistente = document.getElementById("lightbox-video");
+          if (videoExistente) {
+            videoExistente.remove();
+          }
+
+          const video = document.createElement("video");
+          video.id = "lightbox-video";
+          video.src = archivo;
+          video.controls = true;
+          video.autoplay = true;
+          video.style.maxWidth = "90%";
+          video.style.maxHeight = "80vh";
+
+          document.querySelector(".lightbox-content").insertBefore(video, document.querySelector(".lightbox-nav"));
+        } 
+        else 
+        {
+          // Si había un video previo, lo eliminamos
+          const videoExistente = document.getElementById("lightbox-video");
+          if (videoExistente) {
+            videoExistente.remove();
+          }
+          lightboxImg.src = archivo;
+          lightboxImg.style.display = "block";
+        }
+      }
+      lightboxClose.addEventListener("click", cerrarLightbox);
+
+      prevBtn.addEventListener("click", () => {
+        indiceImagen = (indiceImagen - 1 + imagenesActuales.length) % imagenesActuales.length;
+        mostrarImagen();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        indiceImagen = (indiceImagen + 1) % imagenesActuales.length;
+        mostrarImagen();
+      });
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) cerrarLightbox();
+      });
+      
+    </script>
+  </body>
+</html>
