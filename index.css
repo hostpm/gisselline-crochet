@@ -243,4 +243,15 @@ introductorio de la página de inicio.*/
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+
+}
+@media (max-width: 768px) {
+  .carrusel-contenedor {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .carrusel {
+    transform: scale(0.8);
+  }
 }
